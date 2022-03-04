@@ -1,12 +1,18 @@
 import React, {useState} from 'react';
+import { Link, Route, Switch } from 'wouter';
+
+import Register from './pages/Register';
 import './App.css';
-import Register from './components/Register';
+
 
 function App() {
 
   return (
     <div>
-    <Register></Register>
+      <Switch>
+        <Route component={Register} path="/register"></Route>
+      </Switch>
+      
     </div>
   );
 }
