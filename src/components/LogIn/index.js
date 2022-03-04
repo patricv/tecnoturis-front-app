@@ -8,16 +8,18 @@ export default function Login(){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [isLogin, setIsLogin] = useState(false)
-    const [jwt, setJwt] = useState("")
+    const [user, setUser] = useState({})
     const [error, setError] = useState({})
 
     const handleSubmit = (e)=>{
         e.preventDefault()
         setIsLogin(true)
         setError({})
-        login(username, password).then(jwt => {
-            console.log('here')
-            setJwt(jwt)
+        login(username, password).then(user => {
+            setUser(user)
+            window.localStorage.setItem(
+                'user',JSON.stringify(user)
+            )
             setIsLogin(false)
         }).catch(error =>{
             setError(error)

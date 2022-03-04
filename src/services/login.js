@@ -1,7 +1,6 @@
 const apiURL = "http://localhost:80/users/login"
 
 export default function login(username, password){
-    console.log(username)
    return fetch(apiURL,{
        method:'POST',
        headers: {
@@ -14,8 +13,6 @@ export default function login(username, password){
             return res.json()
         })
         .then(response =>{
-            const {data} = response
-            const {jwt} = data
-            return jwt
+            return response
         })
     }
