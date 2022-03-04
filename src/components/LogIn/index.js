@@ -1,21 +1,24 @@
 import React, {useState, useEffect} from "react";
-import './register.css'
-import register from "../../services/register";
+import {useLocation} from "wouter"
+import './login.css'
+import login from "../../services/login";
 
 
-export default function Register(){
+export default function Login(){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [isRegistered, setIsRegistered] = useState(false)
-    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [isLogin, setIsLogin] = useState(false)
+    const [jwt, setJwt] = useState("")
     const [error, setError] = useState({})
 
     const handleSubmit = (e)=>{
         e.preventDefault()
+        setIsLogin(true)
         setError({})
-        register(username, password).then(data => {
-            setIsRegistered(true)
-            setIsSubmitting(true)
+        login(username, password).then(jwt => {
+            console.log('here')
+            setJwt(jwt)
+            setIsLogin(false)
         }).catch(error =>{
             setError(error)
         })
@@ -41,9 +44,11 @@ export default function Register(){
                 value={password}
                 />
             </label>
-            {error?<span className="span-error">{error.message}</span>:""}
-            <button disabled={isSubmitting}>
-                Register
+            <div>
+                {error?<span className="span-error">{error.message}</span>:""}
+            </div>
+            <button disabled={isLogin}>
+                Login
             </button>
         </form>
         </>

@@ -1,6 +1,7 @@
-const apiURL = "http://localhost:80/users/register"
+const apiURL = "http://localhost:80/users/login"
 
-export default function register(username, password){
+export default function login(username, password){
+    console.log(username)
    return fetch(apiURL,{
        method:'POST',
        headers: {
@@ -14,6 +15,7 @@ export default function register(username, password){
         })
         .then(response =>{
             const {data} = response
-            return data
+            const {jwt} = data
+            return jwt
         })
-}
+    }
