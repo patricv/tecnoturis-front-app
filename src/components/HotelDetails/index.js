@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from "react";
 import {getHotel} from "../../services/hotels";
 import Hotel from '../Hotel'
+import "./details.css"
+
+const hotelLogo = "../../../pulic/hotel.jpg"
 
 
 
@@ -13,12 +16,28 @@ export default function ListOfHotels({id}){
    },[])
 
     return(
-        <div>
-            <div>{hotel.name}</div>
-            <div>{hotel.address1}</div>
-            <div>{hotel.hotelRating}</div>
-            <div>{hotel.shortDescription}</div>
-            <div>{hotel.tripAdvisorRatingUrl}</div>
+        
+        <div className="item-detail-hotel">
+            <div className="item-detail-name">
+                <div className="item-detail-name-title">Name:</div>
+                <div className="item-detail-name-value">{hotel.name}</div>
+            </div>
+            <div className="item-detail-name">
+                <div className="item-detail-name-title">Address:</div>
+                <div className="item-detail-name-value">{hotel.address1}</div>
+            </div>
+            <div className="item-detail-name">
+                <div className="item-detail-name-title">Hotel rating:</div>
+                <div className="item-detail-name-value">{hotel.hotelRating}</div>
+            </div>
+            <div className="item-detail-name">
+                <div className="item-detail-name-title">Description:</div>
+                <div className="item-detail-name-value">{hotel.shortDescription}</div>
+            </div>
+            <div className="item-detail-name">
+                <div className="item-detail-name-title">Tripadvisor rating:</div>
+                <div className="item-detail-name-value">{hotel.tripAdvisorRating}</div>
+            </div>
         </div>
     )
 }
