@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {useLocation} from "wouter"
-import './login.css'
 import login from "../../services/login";
+import './login.css'
+
 
 
 export default function Login(){
@@ -10,6 +11,7 @@ export default function Login(){
     const [isLogin, setIsLogin] = useState(false)
     const [user, setUser] = useState({})
     const [error, setError] = useState({})
+    const [,navigate] = useLocation()
 
     const handleSubmit = (e)=>{
         e.preventDefault()
@@ -21,6 +23,7 @@ export default function Login(){
                 'user',JSON.stringify(user)
             )
             setIsLogin(false)
+            navigate('/hotels')
         }).catch(error =>{
             setError(error)
         })

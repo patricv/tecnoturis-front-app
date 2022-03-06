@@ -1,7 +1,8 @@
-const apiURL = "http://localhost:80/users/login"
+const apiURL = "http://localhost:80/users/"
 
-export default function login(username, password){
-   return fetch(apiURL,{
+
+export default async function login(username, password){
+   return fetch(apiURL+'login',{
        method:'POST',
        headers: {
         "Content-Type": "application/json"

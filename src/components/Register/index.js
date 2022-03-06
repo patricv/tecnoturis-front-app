@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import './register.css'
 import register from "../../services/register";
+import { useLocation } from "wouter";
 
 
 export default function Register(){
@@ -9,6 +10,7 @@ export default function Register(){
     const [isRegistered, setIsRegistered] = useState(false)
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [error, setError] = useState({})
+    const [,navigate] = useLocation()
 
     const handleSubmit = (e)=>{
         e.preventDefault()
@@ -16,6 +18,7 @@ export default function Register(){
         register(username, password).then(data => {
             setIsRegistered(true)
             setIsSubmitting(true)
+            navigate('/login')
         }).catch(error =>{
             setError(error)
         })
@@ -41,7 +44,9 @@ export default function Register(){
                 value={password}
                 />
             </label>
-            {error?<span className="span-error">{error.message}</span>:""}
+            <div>
+                {error?<span className="span-error">{error.message}</span>:""}
+            </div>
             <button disabled={isSubmitting}>
                 Register
             </button>
