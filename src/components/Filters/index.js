@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-
+import './filters.css'
 
 
 export default function Filters({handleFilters}){
@@ -14,10 +14,11 @@ export default function Filters({handleFilters}){
 
     return(
         <>
-        <form className='form' onSubmit={handleSubmit}>
+        <form className='form-filter' onSubmit={handleSubmit}>
             <label>
                 Name
                 <input
+                type="search"
                 value={name}
                 onChange={(e)=>{setName(e.target.value)}}
                 />
@@ -25,13 +26,17 @@ export default function Filters({handleFilters}){
             <label>
                 Hotel rating
                 <input
+                type="number"
                 value={rating}
                 onChange={(e)=>{setRating(e.target.value)}}
                 />
             </label>
-            <button>
-                Search
-            </button>
+            <div>
+                <button className="form-filter-btn">
+                    Search
+                </button>
+            </div>
+            
         </form>
         </>
     )
