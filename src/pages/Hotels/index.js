@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ListOfHotels from '../../components/ListOfHotels';
 import Filters from '../../components/Filters';
 import {useLocation} from "wouter"
+import "./list.css"
 
 
 export default function HotelsPage(){
@@ -15,7 +16,7 @@ export default function HotelsPage(){
 
     return <div>
       <Filters handleFilters={handleFilters}></Filters>
-      <ListOfHotels name={name} rating={rating}></ListOfHotels>
+      <ListOfHotels className ="list-hotel" name={name} rating={rating}></ListOfHotels>
     </div>
 }
 

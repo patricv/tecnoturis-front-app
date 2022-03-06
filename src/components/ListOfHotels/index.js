@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {getAllHotels} from "../../services/hotels";
 import Hotel from '../Hotel'
+import "./hotellist.css"
 
 
 
@@ -13,7 +14,8 @@ export default function ListOfHotels({name, rating}){
    },[])
 
     return(
-        <div>
+        
+        <div className="list-hotel">
             
             {hotels.map(({id, name, hotelRating}) =>
                
@@ -21,6 +23,7 @@ export default function ListOfHotels({name, rating}){
                id={id}
                key={id}
                name={name}
+               hotelRating={hotelRating}
                />
 
             )}
