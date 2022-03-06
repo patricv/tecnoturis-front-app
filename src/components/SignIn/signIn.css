@@ -1,3 +1,14 @@
-.btn {
-    width: 100%;
+.btn-singin {
+    
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 7px;
+  border-color: #efffff;
+  background-color: #512da8;
+  color: white;
+  width: 100%;
+  font-size: 20px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   }

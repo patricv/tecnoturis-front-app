@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {useLocation} from "wouter"
+import "./signUp.css"
 
 
 export default function SingUp(props){
@@ -7,7 +8,7 @@ export default function SingUp(props){
 
     return <div>
                 
-        <button disabled={props.isSingninUp | props.isSingninIn} onClick={props.handleSignUp}>
+        <button className="btn-register" disabled={props.isSingninUp | props.isSingninIn} onClick={props.handleSignUp}>
                 Sign Up
         </button>
             
