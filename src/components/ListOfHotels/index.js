@@ -4,10 +4,10 @@ import Hotel from '../Hotel'
 
 
 
-export default function ListOfHotels(){
+export default function ListOfHotels({name, rating}){
     const [hotels, setHotels] = useState([])
    useEffect(()=>{
-    getAllHotels().then(hotels=>{
+    getAllHotels(name, rating).then(hotels=>{
         setHotels(hotels.hotels)
     })
    },[])

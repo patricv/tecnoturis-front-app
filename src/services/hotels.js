@@ -30,8 +30,11 @@ const getToken = async()=>{
             })
         }
 
-const getAllHotels = async() => {
-    return await fetch(apiURL+'hotels',{
+const getAllHotels = async(name, rating) => {
+    var url = new URL(apiURL+'hotels'),
+    params = {name, rating}
+    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+    return await fetch(url,{
         method:'GET',
         headers: {
          "Content-Type": "application/json",
