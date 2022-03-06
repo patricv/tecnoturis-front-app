@@ -6,7 +6,7 @@ import LogIn from './pages/Login';
 import Home from './pages/Home'
 import HotelsPage from './pages/Hotels'
 import HotelDetailsPage from './pages/HotelDetails'
-import {setToken, setTokenTecnoturist} from './services/hotels'
+import {setToken} from './services/hotels'
 import './App.css';
 
 
@@ -17,14 +17,6 @@ function App() {
     if (userJSON) {
       const user = JSON.parse(userJSON)
       setToken(user.token)
-    }
-  }, [])
-
-  useEffect(() => {
-    const tokenJSON = window.localStorage.getItem('token')
-    if (tokenJSON) {
-      const token = JSON.parse(tokenJSON)
-      setTokenTecnoturist(token.token)
     }
   }, [])
 
