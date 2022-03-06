@@ -10,7 +10,8 @@ export default async function login(username, password){
        body: JSON.stringify({username, password})
    })
         .then(res => {
-            if (!res.ok) throw new Error('Response is NOT ok')
+            if (!res.ok && res.status===400) throw new Error('Credentials are invalid')
+            if (!res.ok && res.status!==400) throw new Error('Somenthing went wrong')
             return res.json()
         })
         .then(response =>{

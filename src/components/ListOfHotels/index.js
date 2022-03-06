@@ -11,7 +11,7 @@ export default function ListOfHotels({name, rating}){
     getAllHotels(name, rating).then(hotels=>{
         setHotels(hotels.hotels)
     })
-   },[])
+   },[name, rating])
 
     return(
         

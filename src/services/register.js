@@ -9,7 +9,7 @@ export default function register(username, password){
        body: JSON.stringify({username, password})
    })
         .then(res => {
-            if (!res.ok) throw new Error('Response is NOT ok')
+            if (!res.ok) throw new Error('Something went wrong')
             return res.json()
         })
         .then(response =>{

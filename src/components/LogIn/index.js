@@ -26,6 +26,7 @@ export default function Login(){
             navigate('/hotels')
         }).catch(error =>{
             setError(error)
+            setIsLogin(false)
         })
     }
 
@@ -53,7 +54,7 @@ export default function Login(){
                 />
             </label>
             <div>
-                {error?<span className="span-error">{error.message}</span>:""}
+                {error?<span className="span-error-login">{error.message}</span>:""}
             </div>
             <button className = "form-login-btn" disabled={isLogin}>
                 Login
