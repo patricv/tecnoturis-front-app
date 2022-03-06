@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import './register.css'
 import register from "../../services/register";
 import { useLocation } from "wouter";
+import './register.css'
 
 
 export default function Register(){
@@ -25,10 +26,13 @@ export default function Register(){
     }
 
     return(
-        <>
-        <form className='form' onSubmit={handleSubmit}>
+        <div>
+        <div className='title'>
+            <h>Sing Up</h>
+        </div>
+        <form className='form-register' onSubmit={handleSubmit}>
             <label>
-                username
+                Username
                 <input
                 placeholder="username"
                 onChange={(e)=>{setUsername(e.target.value)}}
@@ -36,7 +40,7 @@ export default function Register(){
                 />
             </label>
             <label>
-                password
+                Password
                 <input
                 type="password"
                 placeholder="password"
@@ -45,12 +49,12 @@ export default function Register(){
                 />
             </label>
             <div>
-                {error?<span className="span-error">{error.message}</span>:""}
+                {error?<span className="span-error-register">{error.message}</span>:""}
             </div>
-            <button disabled={isSubmitting}>
-                Register
+            <button className="form-register-btn" disabled={isSubmitting}>
+                Sign Up
             </button>
         </form>
-        </>
+        </div>
     )
 }

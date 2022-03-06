@@ -30,10 +30,13 @@ export default function Login(){
     }
 
     return(
-        <>
-        <form className='form' onSubmit={handleSubmit}>
+        <div>
+        <div className='title'>
+            <h>Sing In</h>
+        </div>
+        <form className='form-login' onSubmit={handleSubmit}>
             <label>
-                username
+                Username
                 <input
                 placeholder="username"
                 onChange={(e)=>{setUsername(e.target.value)}}
@@ -41,7 +44,7 @@ export default function Login(){
                 />
             </label>
             <label>
-                password
+                Password
                 <input
                 type="password"
                 placeholder="password"
@@ -52,10 +55,10 @@ export default function Login(){
             <div>
                 {error?<span className="span-error">{error.message}</span>:""}
             </div>
-            <button disabled={isLogin}>
+            <button className = "form-login-btn" disabled={isLogin}>
                 Login
             </button>
         </form>
-        </>
+        </div>
     )
 }
