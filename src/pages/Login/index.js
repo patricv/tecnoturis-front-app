@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import LogIn from '../../components/LogIn';
 
 
-export default function LoginPage(){
+export default function LoginPage() {
     return <div>
-    <LogIn></LogIn>
+        <LogIn></LogIn>
     </div>
 }

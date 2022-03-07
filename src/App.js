@@ -1,12 +1,12 @@
-import React, {useEffect} from 'react';
-import {  Route, Switch } from 'wouter';
+import React, { useEffect } from 'react';
+import { Route, Switch } from 'wouter';
 
 import Register from './pages/Register';
 import LogIn from './pages/Login';
 import Home from './pages/Home'
 import HotelsPage from './pages/Hotels'
 import HotelDetailsPage from './pages/HotelDetails'
-import {setToken} from './services/hotels'
+import { setToken } from './services/hotels'
 import './App.css';
 
 
@@ -29,7 +29,7 @@ function App() {
         <Route component={HotelsPage} path="/hotels"></Route>
         <Route component={HotelDetailsPage} path="/hotel/:id" />
       </Switch>
-      
+
     </div>
   );
 }

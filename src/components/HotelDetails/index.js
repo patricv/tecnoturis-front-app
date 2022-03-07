@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {getHotel} from "../../services/hotels";
+import React, { useState, useEffect } from "react";
+import { getHotel } from "../../services/hotels";
 import Hotel from '../Hotel'
 import "./details.css"
 
@@ -7,16 +7,16 @@ const hotelLogo = "../../../pulic/hotel.jpg"
 
 
 
-export default function ListOfHotels({id}){
+export default function ListOfHotels({ id }) {
     const [hotel, setHotel] = useState({})
-   useEffect(()=>{
-    getHotel(id).then(hotel=>{
-        setHotel(hotel.hotel)
-    })
-   },[])
+    useEffect(() => {
+        getHotel(id).then(hotel => {
+            setHotel(hotel.hotel)
+        })
+    }, [])
 
-    return(
-        
+    return (
+
         <div className="item-detail-hotel">
             <div className="item-detail-name">
                 <div className="item-detail-name-title">Name:</div>
