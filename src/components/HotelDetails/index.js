@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getHotel } from "../../services/hotels";
-import Hotel from '../Hotel'
 import "./details.css"
 
-const hotelLogo = "../../../pulic/hotel.jpg"
 
 
-
-export default function ListOfHotels({ id }) {
+export default function HotelDetails({ id }) {
     const [hotel, setHotel] = useState({})
     useEffect(() => {
         getHotel(id).then(hotel => {

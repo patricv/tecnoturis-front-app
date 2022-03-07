@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import HotelDetails from '../../components/HotelDetails';
-import { useLocation } from "wouter"
 
 
 export default function HotelDetailsPage({ params }) {

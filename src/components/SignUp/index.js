@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { useLocation } from "wouter"
+import React from 'react';
 import "./signUp.css"
 
 
 export default function SingUp(props) {
-    const [, navigate] = useLocation()
 
     return <div>
 
