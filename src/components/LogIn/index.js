@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {useLocation} from "wouter"
 import login from "../../services/login";
 import './login.css'

@@ -1,5 +1,5 @@
-import React, {useState,useEffect} from 'react';
-import { Link, Route, Switch } from 'wouter';
+import React, {useEffect} from 'react';
+import {  Route, Switch } from 'wouter';
 
 import Register from './pages/Register';
 import LogIn from './pages/Login';

@@ -1,15 +1,26 @@
 
-import axios from 'axios';
 const apiURL="http://localhost:80/tecnoturist/"
 let token = null
-let tokenTecnoturist = null
 
 
 const setToken = newToken => {
   token = `Bearer ${newToken}`
 }
 
+const setTokenInApp = ()=>{
+   
+    const userJSON = window.localStorage.getItem('user')
+    if (userJSON) {
+        const user = JSON.parse(userJSON)
+        setToken(user.token)
+    }
+    
+}
+
 const getToken = async()=>{
+    if(!token){
+        setTokenInApp()
+    }
     
     return await fetch(apiURL+'token',{
         method:'GET',
@@ -31,6 +42,9 @@ const getAllHotels = async(name, rating) => {
     var url = new URL(apiURL+'hotels/'),
     params = {name, rating}
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+    if(!token){
+        setTokenInApp()
+    }
     return await fetch(url,{
         method:'GET',
         headers: {
@@ -47,6 +61,10 @@ const getAllHotels = async(name, rating) => {
   }
 
   const getHotel = async(id) => {
+
+    if(!token){
+        setTokenInApp()
+    }
 
     return await fetch(apiURL+'hotel/'+id,{
         method:'GET',
