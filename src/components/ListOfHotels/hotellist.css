@@ -1,3 +1,7 @@
 .list-hotel{
    border-color: darkgray; 
 }
+.span-error-list{
+   color: red;
+   padding-left: 20px;
+}

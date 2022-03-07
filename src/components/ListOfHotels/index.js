@@ -7,14 +7,19 @@ import "./hotellist.css"
 
 export default function ListOfHotels({name, rating}){
     const [hotels, setHotels] = useState([])
+    const [error, setError] = useState()
    useEffect(()=>{
+    setError()
     getAllHotels(name, rating).then(hotels=>{
         setHotels(hotels.hotels)
+    }).catch(error=>{
+        setError(error) 
     })
    },[name, rating])
 
     return(
-        
+        <div>
+        {error?<span className="span-error-list">{error.message}</span>:""}
         <div className="list-hotel">
             
             {hotels.map(({id, name, hotelRating}) =>
@@ -27,6 +32,7 @@ export default function ListOfHotels({name, rating}){
                />
 
             )}
+        </div>
         </div>
     )
 }

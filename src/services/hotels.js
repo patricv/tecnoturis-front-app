@@ -38,7 +38,7 @@ const getAllHotels = async(name, rating) => {
          'Authorization': `${token}`,
        }
     }).then(res => {
-        if (!res.ok) throw new Error('Response is NOT ok')
+        if (!res.ok) throw new Error('Something went wrong')
         return res.json()
     })
     .then(response =>{
